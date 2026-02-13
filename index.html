@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday, Vishnu Piya!</title>
   <style>
     * {
@@ -17,13 +18,64 @@
       align-items: center;
       justify-content: center;
       color: #2c1338;
+      padding: 10px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .tree-container {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .tree {
+      width: 200px;
+      height: 300px;
+      position: relative;
+    }
+    .trunk {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 80px;
+      background: #8B4513;
+      border-radius: 10px;
+    }
+    .leaves {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .heart-leaf {
+      position: absolute;
+      font-size: 24px;
+      animation: float-heart 3s ease-in-out infinite;
+      opacity: 0.8;
+    }
+    @keyframes float-heart {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(10deg); }
     }
     .card {
       background: rgba(255, 255, 255, 0.95);
       border-radius: 20px;
-      padding: 28px 24px 32px;
+      padding: 30px 25px;
       max-width: 420px;
-      width: 92%;
+      width: 100%;
       text-align: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
       position: relative;
@@ -73,9 +125,49 @@
       font-weight: 600;
       color: #e91e63;
     }
+    .countdown {
+      background: linear-gradient(135deg, #ffe0e8 0%, #fff0f5 100%);
+      border-radius: 15px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(255, 75, 119, 0.2);
+    }
+    .countdown-title {
+      font-size: 12px;
+      color: #ff4b77;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .countdown-items {
+      display: flex;
+      justify-content: space-around;
+      gap: 8px;
+    }
+    .countdown-item {
+      flex: 1;
+      background: white;
+      border-radius: 10px;
+      padding: 8px 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .countdown-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e91e63;
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 10px;
+      color: #999;
+      margin-top: 4px;
+      font-weight: 500;
+    }
     .line {
       font-size: 14px;
       margin-bottom: 8px;
+      line-height: 1.5;
     }
     .quote {
       font-size: 14px;
@@ -84,6 +176,16 @@
       border-top: 1px dashed rgba(0, 0, 0, 0.08);
       color: #5b3b5d;
       font-style: italic;
+    }
+    .special-msg {
+      background: linear-gradient(135deg, #ffe0e8 0%, #fff0f5 100%);
+      border-left: 4px solid #ff4b77;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: #5b3b5d;
+      line-height: 1.6;
     }
     .footer {
       margin-top: 16px;
@@ -94,42 +196,103 @@
       font-weight: 600;
       color: #c2185b;
     }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column-reverse;
+        gap: 15px;
+      }
+      .tree {
+        width: 150px;
+        height: 220px;
+      }
+      .heart-leaf {
+        font-size: 18px;
+      }
+      .card {
+        padding: 20px 18px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      .countdown-number {
+        font-size: 16px;
+      }
+      .line {
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="tagline">For my filmy heroine</div>
-    <h1>Happy Birthday,</h1>
-    <h2>Vishnu Piya ♥</h2>
+  <div class="container">
+    <div class="tree-container">
+      <div class="tree">
+        <div class="leaves"></div>
+        <div class="trunk"></div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="tagline">For my filmy heroine</div>
+      <h1>Happy Birthday,</h1>
+      <h2>Vishnu Piya ♥</h2>
 
-    <div id="days" class="days">Loading days...</div>
+      <div id="days" class="days">Loading days...</div>
 
-    <p class="line">
-      You've been lighting up this world from the moment you were born.
-    </p>
-    <p class="line">
-      Out of all these days, <span class="highlight">today</span> is my favourite chapter of your story.
-    </p>
-    <p class="line">
-      If life is a movie, then every day since 14–02–2000 is a scene where the universe chose you as the main character.
-    </p>
+      <div class="countdown">
+        <div class="countdown-title">Next Birthday In</div>
+        <div class="countdown-items">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days-countdown">0</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours-countdown">0</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes-countdown">0</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds-countdown">0</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
 
-    <p class="quote">
-      "Some people count years... I just count how many days the world has been lucky to have you."
-    </p>
+      <p class="line">
+        You've been lighting up this world from the moment you were born.
+      </p>
+      <p class="line">
+        Out of all these days, <span class="highlight">today</span> is my favourite chapter of your story.
+      </p>
+      <p class="line">
+        If life is a movie, then every day since 14–02–2000 is a scene where the universe chose you as the main character.
+      </p>
 
-    <div class="footer">
-      Made with a lot of love and a little bit of JavaScript.
+      <div class="special-msg">
+        ♥ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ♥
+      </div>
+
+      <p class="quote">
+        "Some people count years... I just count how many days the world has been lucky to have you."
+      </p>
+
+      <div class="footer">
+        Made with endless love and JavaScript. ♥
+      </div>
     </div>
   </div>
 
   <script>
     // DOB: 14/02/2000  (DD/MM/YYYY)
-    function calculateDaysLived() {
-      // Parse her DOB as (year, monthIndex, day)
-      const birthDate = new Date(2000, 1, 14); // February is monthIndex 1
+    const birthDate = new Date(2000, 1, 14);
 
-      // Get today's date (no time part)
+    function calculateDaysLived() {
       const today = new Date();
       const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
       const birthUTC = Date.UTC(birthDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
@@ -141,7 +304,64 @@
       daysEl.textContent = diffInDays.toLocaleString("en-IN") + " days of you on this earth";
     }
 
+    function updateCountdown() {
+      const now = new Date();
+      let nextBirthday = new Date(now.getFullYear(), 1, 14);
+      
+      if (now > nextBirthday) {
+        nextBirthday = new Date(now.getFullYear() + 1, 1, 14);
+      }
+
+      const diff = nextBirthday - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days-countdown").textContent = days.toString().padStart(2, '0');
+      document.getElementById("hours-countdown").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes-countdown").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds-countdown").textContent = seconds.toString().padStart(2, '0');
+    }
+
+    function createHeartLeaves() {
+      const leavesContainer = document.querySelector('.leaves');
+      const hearts = ['♥', '♡', '♧'];
+      const positions = [
+        { top: '-20%', left: '10%' },
+        { top: '-15%', left: '30%' },
+        { top: '-10%', left: '50%' },
+        { top: '-20%', left: '70%' },
+        { top: '-15%', left: '85%' },
+        { top: '10%', left: '-5%' },
+        { top: '30%', left: '5%' },
+        { top: '50%', left: '-10%' },
+        { top: '70%', left: '8%' },
+        { top: '85%', left: '15%' },
+        { top: '10%', left: '95%' },
+        { top: '35%', left: '100%' },
+        { top: '60%', left: '98%' },
+        { top: '80%', left: '92%' },
+        { top: '40%', left: '20%' },
+        { top: '50%', left: '80%' },
+      ];
+
+      positions.forEach((pos, index) => {
+        const heart = document.createElement('div');
+        heart.className = 'heart-leaf';
+        heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.top = pos.top;
+        heart.style.left = pos.left;
+        heart.style.animationDelay = (index * 0.2) + 's';
+        leavesContainer.appendChild(heart);
+      });
+    }
+
     calculateDaysLived();
+    createHeartLeaves();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
