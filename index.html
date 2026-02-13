@@ -9,9 +9,22 @@
     html, body { width: 100%; height: 100%; overflow-x: hidden; }
     body {
       font-family: 'Poppins', sans-serif;
-    /* UPLOAD YOUR IMAGE: Go to Code tab > Add file > Upload files, upload your photo, then replace 'YOUR-IMAGE-NAME.jpg' below with your filename */
-    background: url('https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?w=1920&q=80') center/cover fixed;    }
-      body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.5); z-index: 0; }
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     .beat { animation: beat 0.6s infinite; }
     @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
     .container {
@@ -58,7 +71,6 @@
       border-top: 2px dashed rgba(0,0,0,0.1); font-size: 14px;
     }
     .footer { font-size: 12px; color: #999; margin-top: 15px; }
-      h2 { font-family: Papyrus, fantasy; font-size: 36px; color: #ff1493; margin: 10px 0 20px; }
   </style>
 </head>
 <body>
@@ -90,7 +102,6 @@
             <div class="time-label">Seconds</div>
           </div>
         </div>
-
 
         <p class="msg">You've been lighting up this world from the moment you were born.</p>
         <p class="msg">Out of all these days, <strong>today</strong> is my favourite chapter of your story.</p>
