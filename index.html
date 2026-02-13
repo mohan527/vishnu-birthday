@@ -1,252 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday, Vishnu Piya!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Vishnu Piya! ❤️</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow-x: hidden; }
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       padding: 20px;
-    }
-    .main-container {
-      display: flex;
-      gap: 50px;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 1400px;
-      width: 100%;
-    }
-    .tree-section {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-    svg {
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
-    }
-    .heart-anim {
-      animation: heartbeat 1s ease-in-out infinite;
-    }
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      25% { transform: scale(1.1); }
-      50% { transform: scale(1.05); }
-    }
-    .card {
-      flex: 1;
-      min-width: 300px;
-      background: rgba(255, 255, 255, 0.97);
-      border-radius: 25px;
-      padding: 40px 30px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
     }
-    .card::before,
-    .card::after {
-      content: "♥";
-      position: absolute;
-      font-size: 50px;
-      color: rgba(255, 105, 135, 0.2);
-      animation: float 6s infinite ease-in-out;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .card::before {
-      top: 15px;
-      left: 20px;
+    .beat { animation: beat 0.6s infinite; }
+    @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    .container {
+      display: flex; gap: 60px; align-items: center; justify-content: center;
+      flex-wrap: wrap; max-width: 1400px; width: 100%;
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+      padding: 40px; border-radius: 30px; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
-    .card::after {
-      bottom: 15px;
-      right: 20px;
-      animation-delay: 2s;
+    .tree-box { flex: 1; min-width: 300px; display: flex; justify-content: center; }
+    svg { filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3)); max-width: 100%; height: auto; }
+    .card {
+      flex: 1; min-width: 300px; max-width: 500px;
+      background: rgba(255,255,255,0.95); border-radius: 25px;
+      padding: 40px 30px; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative; overflow: hidden;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(8deg); }
+    .content { position: relative; z-index: 1; }
+    h1 { font-size: 32px; color: #333; margin: 15px 0; }
+    h2 { font-size: 28px; color: #ff1493; margin: 10px 0 20px; }
+    .label { font-size: 12px; color: #ff1493; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 700; }
+    .counter {
+      background: linear-gradient(135deg, #ffe0e8, #fff0f5);
+      border: 3px solid #ffb3d9; border-radius: 15px; padding: 20px;
+      margin: 20px 0; font-size: 24px; font-weight: 700; color: #e91e63;
     }
-    h1 {
-      font-size: 28px;
-      color: #2c1338;
-      margin-bottom: 5px;
+    .time-display {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+      margin: 15px 0; background: rgba(255, 20, 147, 0.1); padding: 20px; border-radius: 15px;
     }
-    h2 {
-      font-size: 24px;
-      color: #ff4b77;
-      margin-bottom: 15px;
-      font-weight: 600;
+    .time-box {
+      background: white; border-radius: 10px; padding: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .tagline {
-      font-size: 12px;
-      color: #ff4b77;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-    .days-counter {
-      font-size: 28px;
-      color: #e91e63;
-      font-weight: 700;
-      margin: 20px 0;
-      padding: 15px;
-      background: linear-gradient(135deg, #ffe0e8 0%, #fff0f5 100%);
-      border-radius: 15px;
-      border: 2px solid #ffb3d9;
-    }
-    .message-box {
-      text-align: center;
-      margin: 20px 0;
-      line-height: 1.7;
-      color: #5b3b5d;
-    }
-    .message-line {
-      font-size: 15px;
-      margin: 10px 0;
-    }
-    .special-msg {
-      background: linear-gradient(135deg, #ffe0e8 0%, #fff0f5 100%);
-      border-left: 4px solid #ff4b77;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px 0;
-      font-size: 14px;
-      color: #5b3b5d;
-      line-height: 1.7;
+    .time-number { font-size: 28px; font-weight: 700; color: #e91e63; line-height: 1; }
+    .time-label { font-size: 11px; color: #999; margin-top: 5px; text-transform: uppercase; }
+    .msg { font-size: 15px; color: #555; line-height: 1.8; margin: 15px 0; }
+    .special {
+      background: linear-gradient(135deg, #ffe0e8, #fff0f5); border-left: 4px solid #ff1493;
+      border-radius: 10px; padding: 15px; margin: 15px 0; font-size: 14px; color: #5b3b5d; line-height: 1.7;
     }
     .quote {
-      font-size: 14px;
-      font-style: italic;
-      color: #7b587e;
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 2px dashed rgba(0, 0, 0, 0.1);
+      font-style: italic; color: #7b587e; margin-top: 15px; padding-top: 15px;
+      border-top: 2px dashed rgba(0,0,0,0.1); font-size: 14px;
     }
-    .footer-text {
-      font-size: 12px;
-      color: #999;
-      margin-top: 15px;
-    }
-    .highlight {
-      color: #c2185b;
-      font-weight: 700;
-    }
-    @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
-        gap: 30px;
-      }
-      svg {
-        max-width: 280px;
-        max-height: 350px;
-      }
-      .card {
-        padding: 30px 25px;
-      }
-      h1 { font-size: 24px; }
-      h2 { font-size: 20px; }
-      .days-counter { font-size: 22px; }
-      .message-line { font-size: 14px; }
-    }
+    .footer { font-size: 12px; color: #999; margin-top: 15px; }
   </style>
 </head>
 <body>
-  <div class="main-container">
-    <!-- BEAUTIFUL GREEN TREE WITH HEARTS -->
-    <div class="tree-section">
-      <svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-        <!-- TREE FOLIAGE - Multiple circles for tree shape -->
-        <!-- Top layer (small) -->
-        <circle cx="200" cy="80" r="60" fill="#2ecc71" opacity="0.9"/>
-        <!-- Middle layer (medium) -->
-        <circle cx="140" cy="160" r="80" fill="#27ae60" opacity="0.95"/>
-        <circle cx="260" cy="160" r="80" fill="#27ae60" opacity="0.95"/>
-        <circle cx="200" cy="130" r="90" fill="#2ecc71" opacity="0.9"/>
-        <!-- Lower layer (large) -->
-        <circle cx="100" cy="240" r="90" fill="#229954" opacity="0.95"/>
-        <circle cx="300" cy="240" r="90" fill="#229954" opacity="0.95"/>
-        <circle cx="200" cy="220" r="100" fill="#27ae60" opacity="0.92"/>
-        <!-- Bottom layer (widest) -->
-        <circle cx="80" cy="320" r="85" fill="#1e8449" opacity="0.95"/>
-        <circle cx="320" cy="320" r="85" fill="#1e8449" opacity="0.95"/>
-        <circle cx="200" cy="300" r="110" fill="#229954" opacity="0.92"/>
+  <div class="container">
+    <div class="tree-box">
+      <svg width="380" height="480" viewBox="0 0 380 480">
+                <!-- TREE TRUNK -->
+        <rect x="165" y="320" width="50" height="140" fill="#8B4513" rx="8"/>
+        <rect x="168" y="320" width="44" height="140" fill="#A0522D" opacity="0.4" rx="6"/>
         
-        <!-- TREE TRUNK - Brown -->
-        <rect x="175" y="350" width="50" height="100" fill="#8B4513" rx="5"/>
-        <rect x="175" y="350" width="50" height="100" fill="#A0522D" opacity="0.3" rx="5"/>
+        <!-- TREE FOLIAGE LAYERS -->
+        <!-- Bottom layer -->
+        <polygon points="190,320 110,220 270,220" fill="#228B22" opacity="0.9"/>
+        <polygon points="190,320 120,230 260,230" fill="#32CD32" opacity="0.7"/>
         
-        <!-- HEARTS ON TREE - Love symbols -->
-        <text x="200" y="90" font-size="40" text-anchor="middle" class="heart-anim" style="animation-delay: 0s">❤</text>
-        <text x="140" y="150" font-size="35" text-anchor="middle" class="heart-anim" style="animation-delay: 0.2s">💚</text>
-        <text x="260" y="150" font-size="35" text-anchor="middle" class="heart-anim" style="animation-delay: 0.4s">❤</text>
-        <text x="100" y="220" font-size="32" text-anchor="middle" class="heart-anim" style="animation-delay: 0.6s">💚</text>
-        <text x="300" y="220" font-size="32" text-anchor="middle" class="heart-anim" style="animation-delay: 0.8s">❤</text>
-        <text x="170" y="280" font-size="30" text-anchor="middle" class="heart-anim" style="animation-delay: 1s">💚</text>
-        <text x="230" y="280" font-size="30" text-anchor="middle" class="heart-anim" style="animation-delay: 1.2s">❤</text>
-        <text x="80" y="310" font-size="28" text-anchor="middle" class="heart-anim" style="animation-delay: 1.4s">💚</text>
-        <text x="320" y="310" font-size="28" text-anchor="middle" class="heart-anim" style="animation-delay: 1.6s">❤</text>
-        <text x="140" y="330" font-size="26" text-anchor="middle" class="heart-anim" style="animation-delay: 1.8s">💚</text>
-        <text x="260" y="330" font-size="26" text-anchor="middle" class="heart-anim" style="animation-delay: 2s">❤</text>
-        <text x="200" y="350" font-size="28" text-anchor="middle" class="heart-anim" style="animation-delay: 2.2s">💚</text>
+        <!-- Middle layer -->
+        <polygon points="190,200 130,120 250,120" fill="#228B22" opacity="0.9"/>
+        <polygon points="190,200 140,130 240,130" fill="#32CD32" opacity="0.7"/>
+        
+        <!-- Top layer -->
+        <polygon points="190,100 150,40 230,40" fill="#228B22" opacity="0.9"/>
+        <polygon points="190,100 160,50 220,50" fill="#32CD32" opacity="0.7"/>
+        
+        <!-- Star on top -->
+        <text x="190" y="40" font-size="32" text-anchor="middle" class="beat" style="animation-delay:0s">⭐</text>
+        
+        <!-- HEARTS AS LEAVES -->
+        <text x="120" y="210" font-size="28" text-anchor="middle" class="beat" style="animation-delay:0.1s">❤</text>
+        <text x="260" y="210" font-size="28" text-anchor="middle" class="beat" style="animation-delay:0.2s">❤</text>
+        <text x="150" y="170" font-size="26" text-anchor="middle" class="beat" style="animation-delay:0.3s">❤</text>
+        <text x="230" y="170" font-size="26" text-anchor="middle" class="beat" style="animation-delay:0.4s">❤</text>
+        <text x="190" y="150" font-size="30" text-anchor="middle" class="beat" style="animation-delay:0.5s">❤</text>
+        <text x="140" y="110" font-size="24" text-anchor="middle" class="beat" style="animation-delay:0.6s">❤</text>
+        <text x="240" y="110" font-size="24" text-anchor="middle" class="beat" style="animation-delay:0.7s">❤</text>
+        <text x="170" y="80" font-size="22" text-anchor="middle" class="beat" style="animation-delay:0.8s">❤</text>
+        <text x="210" y="80" font-size="22" text-anchor="middle" class="beat" style="animation-delay:0.9s">❤</text>
+        <text x="160" y="260" font-size="26" text-anchor="middle" class="beat" style="animation-delay:1s">❤</text>
+        <text x="220" y="260" font-size="26" text-anchor="middle" class="beat" style="animation-delay:1.1s">❤</text>
       </svg>
     </div>
 
-    <!-- BIRTHDAY CARD -->
     <div class="card">
-      <div class="tagline">For My Filmy Heroine</div>
-      <h1>Happy Birthday,</h1>
-      <h2>Vishnu Piya ❤</h2>
-      
-      <div class="days-counter" id="daysLived">Loading...</div>
+      <div class="content">
+        <div class="label">🎉 Happy Birthday 🎉</div>
+        <h1>Happy Birthday</h1>
+        <h2>Vishnu Piya ❤️</h2>
+        <div class="counter" id="daysCounter">Loading...</div>
+        
+        <div class="label" style="margin-top: 25px;">Live Time Since Birth</div>
+        <div class="time-display">
+          <div class="time-box">
+            <div class="time-number" id="d">0</div>
+            <div class="time-label">Days</div>
+          </div>
+          <div class="time-box">
+            <div class="time-number" id="h">0</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-box">
+            <div class="time-number" id="m">0</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-box">
+            <div class="time-number" id="s">0</div>
+            <div class="time-label">Seconds</div>
+          </div>
+        </div>
 
-      <div class="message-box">
-        <p class="message-line">You've been lighting up this world from the moment you were born.</p>
-        <p class="message-line">Out of all these days, <span class="highlight">today</span> is my favourite chapter of your story.</p>
-        <p class="message-line">If life is a movie, then every day since 14–02–2000 is a scene where the universe chose you as the main character.</p>
+        <p class="msg">You've been lighting up this world from the moment you were born.</p>
+        <p class="msg">Out of all these days, <strong>today</strong> is my favourite chapter of your story.</p>
+        <p class="msg">If life is a movie, then every day since 14-02-2000 is a scene where the universe chose you as the main character.</p>
+
+        <div class="special">
+          ❤️ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ❤️
+        </div>
+
+        <p class="quote">"Some people count years... I just count how many days the world has been lucky to have you."</p>
+        <p class="footer">Made with endless love and JavaScript ❤️</p>
       </div>
-
-      <div class="special-msg">
-        ❤ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ❤
-      </div>
-
-      <p class="quote">
-        "Some people count years... I just count how many days the world has been lucky to have you."
-      </p>
-
-      <p class="footer-text">Made with endless love and JavaScript 💚</p>
     </div>
   </div>
 
   <script>
-    function calculateDays() {
-      const birthDate = new Date(2000, 1, 14); // Feb 14, 2000
-      const today = new Date();
+    const birthDate = new Date(2000, 1, 14, 0, 0, 0);
+    
+    function updateTime() {
+      const now = new Date();
+      const diff = now - birthDate;
       
-      const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
-      const birthUTC = Date.UTC(birthDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
       
-      const msPerDay = 1000 * 60 * 60 * 24;
-      const days = Math.floor((todayUTC - birthUTC) / msPerDay);
-      
-      document.getElementById('daysLived').textContent = days.toLocaleString('en-IN') + ' days of you on this earth';
+      document.getElementById('daysCounter').textContent = days.toLocaleString('en-IN') + ' days of you on this earth';
+      document.getElementById('d').textContent = days.toString().padStart(2, '0');
+      document.getElementById('h').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('m').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('s').textContent = seconds.toString().padStart(2, '0');
     }
-
-    // Initialize
-    calculateDays();
+    
+    updateTime();
+    setInterval(updateTime, 1000);
   </script>
 </body>
 </html>
