@@ -21,62 +21,30 @@
     }
     .main-container {
       display: flex;
-      gap: 40px;
+      gap: 50px;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      max-width: 1200px;
+      max-width: 1400px;
       width: 100%;
     }
     .tree-section {
       flex: 1;
-      min-width: 250px;
+      min-width: 300px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
     }
-    .love-tree {
-      position: relative;
-      width: 300px;
-      height: 400px;
+    svg {
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
     }
-    .tree-foliage {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(76, 175, 80, 0.3) 0%, rgba(76, 175, 80, 0.1) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 0 30px rgba(76, 175, 80, 0.2);
+    .heart-anim {
+      animation: heartbeat 1s ease-in-out infinite;
     }
-    .heart {
-      position: absolute;
-      font-size: 48px;
-      font-weight: bold;
-      animation: heartfloat 4s ease-in-out infinite;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      filter: drop-shadow(0 2px 3px rgba(255, 20, 147, 0.3));
-    }
-    @keyframes heartfloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      50% { transform: translateY(-20px) rotate(5deg); opacity: 0.9; }
-    }
-    .trunk {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 120px;
-      background: linear-gradient(to right, #6b4423, #8b5a2b, #6b4423);
-      border-radius: 8px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset -2px 0 5px rgba(0, 0, 0, 0.2);
-      z-index: 10;
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1.05); }
     }
     .card {
       flex: 1;
@@ -182,20 +150,9 @@
         flex-direction: column;
         gap: 30px;
       }
-      .love-tree {
-        width: 220px;
-        height: 300px;
-      }
-      .tree-foliage {
-        width: 200px;
-        height: 200px;
-      }
-      .heart {
-        font-size: 36px;
-      }
-      .trunk {
-        width: 35px;
-        height: 90px;
+      svg {
+        max-width: 280px;
+        max-height: 350px;
       }
       .card {
         padding: 30px 25px;
@@ -209,19 +166,50 @@
 </head>
 <body>
   <div class="main-container">
-    <!-- LOVE TREE -->
+    <!-- BEAUTIFUL GREEN TREE WITH HEARTS -->
     <div class="tree-section">
-      <div class="love-tree">
-        <div class="tree-foliage" id="foliage"></div>
-        <div class="trunk"></div>
-      </div>
+      <svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <!-- TREE FOLIAGE - Multiple circles for tree shape -->
+        <!-- Top layer (small) -->
+        <circle cx="200" cy="80" r="60" fill="#2ecc71" opacity="0.9"/>
+        <!-- Middle layer (medium) -->
+        <circle cx="140" cy="160" r="80" fill="#27ae60" opacity="0.95"/>
+        <circle cx="260" cy="160" r="80" fill="#27ae60" opacity="0.95"/>
+        <circle cx="200" cy="130" r="90" fill="#2ecc71" opacity="0.9"/>
+        <!-- Lower layer (large) -->
+        <circle cx="100" cy="240" r="90" fill="#229954" opacity="0.95"/>
+        <circle cx="300" cy="240" r="90" fill="#229954" opacity="0.95"/>
+        <circle cx="200" cy="220" r="100" fill="#27ae60" opacity="0.92"/>
+        <!-- Bottom layer (widest) -->
+        <circle cx="80" cy="320" r="85" fill="#1e8449" opacity="0.95"/>
+        <circle cx="320" cy="320" r="85" fill="#1e8449" opacity="0.95"/>
+        <circle cx="200" cy="300" r="110" fill="#229954" opacity="0.92"/>
+        
+        <!-- TREE TRUNK - Brown -->
+        <rect x="175" y="350" width="50" height="100" fill="#8B4513" rx="5"/>
+        <rect x="175" y="350" width="50" height="100" fill="#A0522D" opacity="0.3" rx="5"/>
+        
+        <!-- HEARTS ON TREE - Love symbols -->
+        <text x="200" y="90" font-size="40" text-anchor="middle" class="heart-anim" style="animation-delay: 0s">❤</text>
+        <text x="140" y="150" font-size="35" text-anchor="middle" class="heart-anim" style="animation-delay: 0.2s">💚</text>
+        <text x="260" y="150" font-size="35" text-anchor="middle" class="heart-anim" style="animation-delay: 0.4s">❤</text>
+        <text x="100" y="220" font-size="32" text-anchor="middle" class="heart-anim" style="animation-delay: 0.6s">💚</text>
+        <text x="300" y="220" font-size="32" text-anchor="middle" class="heart-anim" style="animation-delay: 0.8s">❤</text>
+        <text x="170" y="280" font-size="30" text-anchor="middle" class="heart-anim" style="animation-delay: 1s">💚</text>
+        <text x="230" y="280" font-size="30" text-anchor="middle" class="heart-anim" style="animation-delay: 1.2s">❤</text>
+        <text x="80" y="310" font-size="28" text-anchor="middle" class="heart-anim" style="animation-delay: 1.4s">💚</text>
+        <text x="320" y="310" font-size="28" text-anchor="middle" class="heart-anim" style="animation-delay: 1.6s">❤</text>
+        <text x="140" y="330" font-size="26" text-anchor="middle" class="heart-anim" style="animation-delay: 1.8s">💚</text>
+        <text x="260" y="330" font-size="26" text-anchor="middle" class="heart-anim" style="animation-delay: 2s">❤</text>
+        <text x="200" y="350" font-size="28" text-anchor="middle" class="heart-anim" style="animation-delay: 2.2s">💚</text>
+      </svg>
     </div>
 
     <!-- BIRTHDAY CARD -->
     <div class="card">
       <div class="tagline">For My Filmy Heroine</div>
       <h1>Happy Birthday,</h1>
-      <h2>Vishnu Piya ♥</h2>
+      <h2>Vishnu Piya ❤</h2>
       
       <div class="days-counter" id="daysLived">Loading...</div>
 
@@ -232,69 +220,18 @@
       </div>
 
       <div class="special-msg">
-        ♥ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ♥
+        ❤ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ❤
       </div>
 
       <p class="quote">
         "Some people count years... I just count how many days the world has been lucky to have you."
       </p>
 
-      <p class="footer-text">Made with endless love and JavaScript ♥</p>
+      <p class="footer-text">Made with endless love and JavaScript 💚</p>
     </div>
   </div>
 
   <script>
-    function createHearts() {
-      const foliage = document.getElementById('foliage');
-      const hearts = ['♥', '♡', '❤', '❥'];
-      
-      // Create 30 hearts positioned around the circle
-      for (let i = 0; i < 30; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        
-        // Random heart symbol
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        
-        // Random color
-        const colors = ['#ff1493', '#ff69b4', '#ff6b9d', '#ff85c0', '#ffa3c7', '#e91e63', '#c2185b'];
-        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-        
-        // Position in circle
-        const angle = (i / 30) * Math.PI * 2;
-        const radius = 120;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        
-        heart.style.left = 'calc(50% + ' + x + 'px - 24px)';
-        heart.style.top = 'calc(50% + ' + y + 'px - 24px)';
-        heart.style.animationDelay = (i * 0.1) + 's';
-        
-        foliage.appendChild(heart);
-      }
-      
-      // Add center hearts
-      for (let i = 0; i < 8; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        
-        const colors = ['#ff1493', '#ff69b4', '#ff6b9d', '#ff85c0', '#ffa3c7', '#e91e63', '#c2185b'];
-        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-        
-        const angle = (i / 8) * Math.PI * 2;
-        const radius = 60;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        
-        heart.style.left = 'calc(50% + ' + x + 'px - 24px)';
-        heart.style.top = 'calc(50% + ' + y + 'px - 24px)';
-        heart.style.animationDelay = (3 + i * 0.15) + 's';
-        
-        foliage.appendChild(heart);
-      }
-    }
-
     function calculateDays() {
       const birthDate = new Date(2000, 1, 14); // Feb 14, 2000
       const today = new Date();
@@ -309,7 +246,6 @@
     }
 
     // Initialize
-    createHearts();
     calculateDays();
   </script>
 </body>
