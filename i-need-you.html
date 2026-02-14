@@ -84,6 +84,24 @@
       transform: scale(1.05);
       background: #d81b60;
     }
+
+            .wish-button {
+                          margin-top: 30px;
+                          padding: 12px 30px;
+                          border: none;
+                          border-radius: 20px;
+                          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                          color: white;
+                          font-size: 16px;
+                          cursor: pointer;
+                          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+                          transition: transform 0.2s, background 0.3s;
+                      }
+
+            .wish-button:hover {
+                          transform: scale(1.05);
+                          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+                      }
   </style>
 </head>
 <body>
@@ -107,6 +125,9 @@ I need you to survive. Hope this friendship last forever.....
     <button class="back-button" onclick="window.location.href='index.html';">
       Back to Clock
     </button>
+            <button class="wish-button" onclick="window.location.href='i-wish-for.html';">
+                          I Wish For 🌟
+                      </button>
   </div>
 </body>
 </html>
