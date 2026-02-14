@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Need You ❤️</title>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     html, body {
       width: 100%;
       height: 100%;
       overflow-x: hidden;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/image 234.jpeg') center/cover fixed;
-      align-items: center;
+      background: url('image 234.jpeg') center/cover fixed;
       padding: 20px;
       position: relative;
       overflow: hidden;
     }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -32,34 +35,32 @@
       background: rgba(0, 0, 0, 0.6);
       z-index: 1;
     }
+
     .container {
       position: relative;
       z-index: 2;
       max-width: 800px;
       margin: 50px auto;
       padding: 40px;
-      background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/me.jpeg') center/cover;
+      background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+                  url('me.jpeg') center/cover;
       border-radius: 30px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       text-align: center;
     }
 
-    /* ONE BOLD LINE */
     .main-title {
       font-size: 3rem;
       font-weight: 800;
       color: #e91e63;
       margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
-    /* HUGGING SYMBOL */
     .hug-icon {
       font-size: 3rem;
       margin-bottom: 25px;
     }
 
-    /* CURSIVE TEXT */
     .cursive-text {
       font-family: "Lucida Handwriting", "Brush Script MT", cursive;
       font-size: 1.4rem;
@@ -68,53 +69,36 @@
       white-space: pre-line;
     }
 
-    .back-button {
+    .wish-button {
+      display: inline-block;
       margin-top: 30px;
       padding: 12px 30px;
-      border: none;
       border-radius: 20px;
-      background: #e91e63;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: transform 0.2s, background 0.3s;
     }
-    .back-button:hover {
+
+    .wish-button:hover {
       transform: scale(1.05);
-      background: #d81b60;
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
-
-            .wish-button {
-                          margin-top: 30px;
-                          padding: 12px 30px;
-                          border: none;
-                          border-radius: 20px;
-                          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                          color: white;
-                          font-size: 16px;
-                          cursor: pointer;
-                          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-                          transition: transform 0.2s, background 0.3s;
-                      }
-
-            .wish-button:hover {
-                          transform: scale(1.05);
-                          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-                      }
   </style>
 </head>
+
 <body>
+
   <div class="overlay"></div>
 
   <div class="container">
-    <!-- One bold line -->
+
     <div class="main-title">I Need You Friend</div>
 
-    <!-- Best friend hugging symbol -->
     <div class="hug-icon">🫂</div>
 
-    <!-- Cursive poem text -->
     <div class="cursive-text">
 I need you My friend
 not in the way a child needs a toy. a dog needs a bone. or a person needs a phone
@@ -122,9 +106,12 @@ but in the way the ocean needs salt. a flower needs water. a heart needs blood
 I need you to survive. Hope this friendship last forever.....
     </div>
 
-    <button class="wish-button" onclick="window.location.href='i-wish-for.html';">
-        I Wish For 🌟
-    </button>
+    <!-- FIXED BUTTON -->
+    <a href="i-wish-for.html" class="wish-button">
+      I Wish For 🌟
+    </a>
+
   </div>
+
 </body>
 </html>
