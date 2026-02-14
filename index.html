@@ -10,8 +10,7 @@
     body {
       font-family: 'Poppins', sans-serif;
     /* UPLOAD YOUR IMAGE: Go to Code tab > Add file > Upload files, upload your photo, then replace 'YOUR-IMAGE-NAME.jpg' below with your filename */
-    background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/background') center/cover fixed;      display: flex;
-      justify-content: center;
+background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/vishnu.jpeg') center/cover fixed;      justify-content: center;
       align-items: center;
       padding: 20px;
       position: relative;
@@ -75,7 +74,7 @@
         <h1>Vishnu Piya ❤️</h1>
         <div class="counter" id="daysCounter">Loading...</div>
         
-        <div class="label" style="margin-top: 25px;">Live Time Since Birth</div>
+        <div class="label" style="margin-top: 25px;">This clock began ticking the exact moment you were born</div>
         <div class="time-display">
           <div class="time-box">
             <div class="time-number" id="d">0</div>
@@ -104,13 +103,28 @@
         </div>
 
         <p class="quote">"Some people count years... I just count how many days the world has been lucky to have you."</p>
-        <p class="footer">Made with endless love and JavaScript ❤️</p>
+        <p class="footer">Made with endless love ❤️ -Your's KrishnaMatrix </p>
+            <button
+      onclick="window.location.href='i-need-you.html';"
+      style="
+        margin-top: 20px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 20px;
+        background: #e91e63;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      ">
+      I need you
+    </button>
       </div>
     </div>
   </div>
 
   <script>
-    const birthDate = new Date(2000, 1, 14, 0, 0, 0);
+    const birthDate = new Date(2000, 1, 14, 0, 10, 0);
     
     function updateTime() {
       const now = new Date();
