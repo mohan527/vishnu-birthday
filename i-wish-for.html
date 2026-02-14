@@ -54,14 +54,20 @@
  }
  h1 {
  font-size: 4rem;
- margin-bottom: 20px;
+ margin-bottom: 40px;
  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
  animation: fadeInDown 1s ease-out;
  }
- .wish-button {
- font-size: 1.8rem;
- padding: 20px 40px;
- margin: 40px 0;
+ .nav-buttons {
+ margin-top: 50px;
+ display: flex;
+ gap: 20px;
+ justify-content: center;
+ flex-wrap: wrap;
+ }
+ .nav-button {
+ font-size: 1.5rem;
+ padding: 15px 30px;
  background: rgba(255,255,255,0.2);
  border-radius: 50px;
  backdrop-filter: blur(10px);
@@ -75,12 +81,12 @@
  text-decoration: none;
  display: inline-block;
  }
- .wish-button:hover {
+ .nav-button:hover {
  background: rgba(255,255,255,0.3);
  transform: translateY(-5px) scale(1.05);
  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
  }
- .wish-button:active {
+ .nav-button:active {
  transform: translateY(-2px) scale(0.98);
  }
  @keyframes fadeInDown {
@@ -123,11 +129,14 @@
  <div class="stars" id="stars"></div>
  
  <div class="container">
- <h1><span class="heart">❤️</span> I Wish For <span class="heart">❤️</span></h1>
- 
- <button class="wish-button" onclick="handleWishClick()">✨ I Wish For 🌟</button>
+ <h1><span class="heart">✨</span> I Wish For <span class="heart">🌟</span></h1>
  
  <p class="special-message">"Every moment with you is a wish come true..."</p>
+ 
+ <div class="nav-buttons">
+ <a href="i-need-you.html" class="nav-button">💌 Back</a>
+ <a href="index.html" class="nav-button">🌟 Clock</a>
+ </div>
  </div>
  
  <script>
@@ -140,16 +149,6 @@
  star.style.top = Math.random() * 100 + '%';
  star.style.animationDelay = Math.random() * 3 + 's';
  starsContainer.appendChild(star);
- }
- // Add click event to wish button
- function handleWishClick() {
- const button = event.target;
- button.style.transform = 'scale(0.95) rotate(-2deg)';
- button.style.boxShadow = '0 5px 15px rgba(0,0,0,0.5)';
- setTimeout(() => {
- button.style.transform = 'scale(1) rotate(0deg)';
- button.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
- }, 300);
  }
  </script>
 </body>
