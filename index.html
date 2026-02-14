@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Vishnu Piya! ❤️</title>
+  <title>Vishnu Piya! ❤️</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; overflow-x: hidden; }
     body {
       font-family: 'Poppins', sans-serif;
-    /* UPLOAD YOUR IMAGE: Go to Code tab > Add file > Upload files, upload your photo, then replace 'YOUR-IMAGE-NAME.jpg' below with your filename */
-background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/vishnu.jpeg') center/cover fixed;      justify-content: center;
-      align-items: center;
+      background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/vishnu.jpeg') center/cover fixed;
       padding: 20px;
       position: relative;
       overflow: hidden;
@@ -62,70 +60,132 @@ background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main
       border-top: 2px dashed rgba(0,0,0,0.1); font-size: 14px;
     }
     .footer { font-size: 12px; color: #999; margin-top: 15px; }
-      h2 { font-family: Papyrus, fantasy; font-size: 36px; color: #1e90ff; margin: 10px 0 20px; }
+    h2 { font-family: Papyrus, fantasy; font-size: 36px; color: #1e90ff; margin: 10px 0 20px; }
+    
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 20px;
+      background: #e91e63;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    button:hover { transform: scale(1.05); background: #d81b60; }
+    
+    .page { display: none; }
+    .page.active { display: block; }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      display: none;
+    }
+    .overlay.active { display: block; }
+    
+    #ineedyou-page {
+      position: relative;
+      z-index: 2;
+    }
+    #ineedyou-page.active .overlay { display: block; }
+    #ineedyou-page .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px;
+      background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/me.jpeg') center/cover;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+    }
+    .main-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #e91e63;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .hug-icon {
+      font-size: 3rem;
+      margin-bottom: 25px;
+    }
+    .cursive-text {
+      font-family: "Lucida Handwriting", "Brush Script MT", cursive;
+      font-size: 1.4rem;
+      line-height: 1.9;
+      color: #333;
+      white-space: pre-line;
+    }
   </style>
 </head>
 <body>
-   <audio autoplay loop>
+  <audio id="bg-audio" autoplay loop>
     <source src="https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/audio.mpeg" type="audio/mpeg">
   </audio>
-  <div class="container">
-
-    <div class="card">
-      <div class="content">
-        <div class="label">🎉 Happy Birthday 🎉</div>
-        <h1>Vishnu Piya ❤️</h1>
-        <div class="counter" id="daysCounter">Loading...</div>
-        
-        <div class="label" style="margin-top: 25px;">This clock began ticking the exact moment you were born</div>
-        <div class="time-display">
-          <div class="time-box">
-            <div class="time-number" id="d">0</div>
-            <div class="time-label">Days</div>
+  
+  <!-- MAIN PAGE -->
+  <div id="main-page" class="page active">
+    <div class="container">
+      <div class="card">
+        <div class="content">
+          <div class="label">🎉 Happy Birthday 🎉</div>
+          <h1>Vishnu Piya ❤️</h1>
+          <div class="counter" id="daysCounter">Loading...</div>
+          <div class="label" style="margin-top: 25px;">This clock began ticking the exact moment you were born</div>
+          <div class="time-display">
+            <div class="time-box">
+              <div class="time-number" id="d">0</div>
+              <div class="time-label">Days</div>
+            </div>
+            <div class="time-box">
+              <div class="time-number" id="h">0</div>
+              <div class="time-label">Hours</div>
+            </div>
+            <div class="time-box">
+              <div class="time-number" id="m">0</div>
+              <div class="time-label">Minutes</div>
+            </div>
+            <div class="time-box">
+              <div class="time-number" id="s">0</div>
+              <div class="time-label">Seconds</div>
+            </div>
           </div>
-          <div class="time-box">
-            <div class="time-number" id="h">0</div>
-            <div class="time-label">Hours</div>
+          <p class="msg">You've been lighting up this world from the moment you were born.</p>
+          <p class="msg">Out of all these days, <strong>today</strong> is my favourite chapter of your story.</p>
+          <p class="msg">If life is a movie, then every day since 14-02-2000 is a scene where the universe chose you as the main character.</p>
+          <div class="special">
+            ❤️ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ❤️
           </div>
-          <div class="time-box">
-            <div class="time-number" id="m">0</div>
-            <div class="time-label">Minutes</div>
-          </div>
-          <div class="time-box">
-            <div class="time-number" id="s">0</div>
-            <div class="time-label">Seconds</div>
-          </div>
+          <p class="quote">"Some people count years... I just count how many days the world has been lucky to have you."</p>
+          <p class="footer">Made with endless love ❤️ -Your's KrishnaMatrix</p>
+          <button onclick="showPage('ineedyou')">I need you</button>
         </div>
-
-        <p class="msg">You've been lighting up this world from the moment you were born.</p>
-        <p class="msg">Out of all these days, <strong>today</strong> is my favourite chapter of your story.</p>
-        <p class="msg">If life is a movie, then every day since 14-02-2000 is a scene where the universe chose you as the main character.</p>
-
-        <div class="special">
-          ❤️ <strong>You're my best friend.</strong> Since you came into my life, I see the world differently—with more colour, more joy, more meaning. Every moment matters because you're in it. ❤️
-        </div>
-
-        <p class="quote">"Some people count years... I just count how many days the world has been lucky to have you."</p>
-        <p class="footer">Made with endless love ❤️ -Your's KrishnaMatrix </p>
-            <button
-      onclick="window.location.href='i-need-you.html';"
-      style="
-        margin-top: 20px;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 20px;
-        background: #e91e63;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      ">
-      I need you
-    </button>
       </div>
     </div>
   </div>
-
+  
+  <!-- I NEED YOU PAGE -->
+  <div id="ineedyou-page" class="page">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="main-title">I Need You Friend</div>
+      <div class="hug-icon">🋂</div>
+      <div class="cursive-text">I need you My friend
+not in the way a child needs a toy. a dog needs a bone. or a person needs a phone
+but in the way the ocean needs salt. a flower needs water. a heart needs blood
+I need you to survive. Hope this friendship last forever.....</div>
+      <button onclick="showPage('main')">Back to Clock</button>
+    </div>
+  </div>
+  
   <script>
     const birthDate = new Date(2000, 1, 14, 0, 10, 0);
     
@@ -143,6 +203,15 @@ background: url('https://raw.githubusercontent.com/mohan527/vishnu-birthday/main
       document.getElementById('h').textContent = hours.toString().padStart(2, '0');
       document.getElementById('m').textContent = minutes.toString().padStart(2, '0');
       document.getElementById('s').textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    function showPage(pageName) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      if (pageName === 'main') {
+        document.getElementById('main-page').classList.add('active');
+      } else if (pageName === 'ineedyou') {
+        document.getElementById('ineedyou-page').classList.add('active');
+      }
     }
     
     updateTime();
