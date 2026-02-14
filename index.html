@@ -76,6 +76,23 @@
     }
     button:hover { transform: scale(1.05); background: #d81b60; }
     
+    .music-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(233, 30, 99, 0.9);
+      border: 2px solid white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .music-btn:hover { background: rgba(233, 30, 99, 1); }
+    
     .page { display: none; }
     .page.active { display: block; }
     
@@ -127,9 +144,11 @@
   </style>
 </head>
 <body>
-  <audio id="bg-audio" autoplay loop>
+  <audio id="bg-audio" loop>
     <source src="https://raw.githubusercontent.com/mohan527/vishnu-birthday/main/audio.mpeg" type="audio/mpeg">
   </audio>
+  
+  <button class="music-btn" onclick="toggleMusic()" title="Toggle Music">&#9654;</button>
   
   <!-- MAIN PAGE -->
   <div id="main-page" class="page active">
@@ -187,6 +206,42 @@ I need you to survive. Hope this friendship last forever.....</div>
   </div>
   
   <script>
+    const audio = document.getElementById('bg-audio');
+    const musicBtn = document.querySelector('.music-btn');
+    let isPlaying = false;
+    
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        musicBtn.textContent = '\u25b6';
+        isPlaying = false;
+      } else {
+        audio.play().catch(err => console.log('Autoplay blocked:', err));
+        musicBtn.textContent = '\u23f8';
+        isPlaying = true;
+      }
+    }
+    
+    function playMusic() {
+      if (!isPlaying) {
+        audio.play().catch(err => {
+          console.log('Autoplay blocked:', err);
+        });
+        musicBtn.textContent = '\u23f8';
+        isPlaying = true;
+      }
+    }
+    
+    window.addEventListener('load', function() {
+      playMusic();
+    });
+    
+    document.addEventListener('click', function() {
+      if (!isPlaying) {
+        playMusic();
+      }
+    }, { once: true });
+    
     const birthDate = new Date(2000, 1, 14, 0, 10, 0);
     
     function updateTime() {
